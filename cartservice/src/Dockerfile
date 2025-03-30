@@ -24,7 +24,7 @@ COPY . .
 RUN dotnet publish cartservice.csproj \
     -p:PublishSingleFile=true \
     #-a $TARGETARCH \
-    -r linux-musl-x64
+    -r linux-musl-x64 \
     --self-contained true \
     -p:PublishTrimmed=true \
     -p:TrimMode=full \
