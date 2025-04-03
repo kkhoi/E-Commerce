@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        branch: [main, adservice, checkoutservice]
+        branch: [adservice, checkoutservice]
 
     steps:
       - name: Checkout branch
