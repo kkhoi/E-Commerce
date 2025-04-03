@@ -2,7 +2,6 @@ pipeline {
     agent {
             label 'agent2'
     }
-
     stages {
         stage('Build & Tag Docker Image') {
             steps {
