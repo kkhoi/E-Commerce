@@ -3,7 +3,7 @@ name: Build Docker Images from Multiple Branches
 on:
   push:
     branches:
-      
+      - main
       - adservice
       - checkoutservice
 
@@ -12,7 +12,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        branch: [adservice, checkoutservice]
+        branch: [main, adservice, checkoutservice]
 
     steps:
       - name: Checkout branch
