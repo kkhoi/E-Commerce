@@ -12,7 +12,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        branch: [main, adservice, checkoutservice]
+        branch: [adservice, checkoutservice]
 
     steps:
       - name: Checkout branch
