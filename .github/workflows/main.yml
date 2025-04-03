@@ -1,0 +1,66 @@
+name: Build Docker Images from Multiple Branches
+
+on:
+  push:
+    branches:
+      - main
+      - adservice
+      - checkoutservice
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: [main, adservice, checkoutservice]
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and Push Docker Image
+        run: |
+          docker buildx build \
+            --cache-from=type=registry,ref=khoi2010/ecommerce-app:buildcache \
+            --cache-to=type=registry,ref=khoi2010/ecommerce-app:buildcache,mode=max \
+            --push -t khoi2010/ecommerce-app:${{ matrix.branch }} .
+            
+      - name: Install Docker & Docker Compose
+        run: |
+          if ! command -v docker &> /dev/null; then
+            echo "Installing Docker..."
+            sudo apt update
+            sudo apt install -y docker.io
+            sudo systemctl enable --now docker
+            sudo usermod -aG docker $USER
+          fi
+
+          if ! command -v docker-compose &> /dev/null; then
+            echo "Installing Docker Compose..."
+            sudo apt install -y docker-compose
+          fi
+
+          echo "Docker Version:"
+          docker --version
+          echo "Docker Compose Version:"
+          docker-compose --version
+
+      - name: Start services with Docker Compose
+        run: docker-compose up -d
+
+      - name: Wait for services
+        run: sleep 10
+
+      - name: Check running containers
+        run: docker-compose ps
