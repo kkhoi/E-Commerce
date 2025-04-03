@@ -28,14 +28,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Build and Push Docker Image
-        run: |
-          cd ${{ matrix.branch }}
-          docker buildx build \
-            --cache-from=type=registry,ref=khoi2010/ecommerce-app:buildcache \
-            --cache-to=type=registry,ref=khoi2010/ecommerce-app:buildcache,mode=max \
-            --push -t khoi2010/ecommerce-app:${{ matrix.branch }} .
             
       - name: Install Docker & Docker Compose
         run: |
@@ -56,6 +48,14 @@ jobs:
           docker --version
           echo "Docker Compose Version:"
           docker-compose --version
+
+      - name: Build and Push Docker Image
+        run: |
+          cd ${{ matrix.branch }}
+          docker buildx build \
+            --cache-from=type=registry,ref=khoi2010/ecommerce-app:buildcache \
+            --cache-to=type=registry,ref=khoi2010/ecommerce-app:buildcache,mode=max \
+            --push -t khoi2010/ecommerce-app:${{ matrix.branch }} .
 
       - name: Start services with Docker Compose
         run: docker-compose up -d
