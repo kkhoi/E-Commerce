@@ -3,7 +3,7 @@ name: Build Docker Images from Multiple Branches
 on:
   push:
     branches:
-      
+      - main
       - adservice
       - checkoutservice
 
