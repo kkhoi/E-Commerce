@@ -6,13 +6,21 @@ on:
       - main
       - adservice
       - checkoutservice
+      - currencyservice
+      - emailservice
+      - frontend
+      - loadgenerator
+      - paymentservice
+      - productcatalogservice
+      - recommendationservice
+      - shippingservice
 
 jobs:
   build:
     runs-on: self-hosted
     strategy:
       matrix:
-        branch: [adservice, checkoutservice]
+        branch: [adservice, checkoutservice, currencyservice, emailservice, frontend, loadgenerator, paymentservice, productcatalogservice, recommendationservice, shippingservice]
 
     steps:
       - name: Checkout branch
