@@ -27,7 +27,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: khoi2010/ecommerce-app/emailservice:latest
+        image: khoi2010/emailservice:latest
         ports:
         - containerPort: 8080
         env:
