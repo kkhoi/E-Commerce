@@ -29,7 +29,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: khoi2010/ecommerce-app/adservice:latest
+        image: khoi2010/adservice:latest
         ports:
         - containerPort: 9555
         env:
