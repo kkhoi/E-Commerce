@@ -14,7 +14,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: server
-        image: khoi2010/ecommerce-app/shippingservice:latest
+        image: khoi2010/shippingservice:latest
         ports:
         - containerPort: 50051
         env:
