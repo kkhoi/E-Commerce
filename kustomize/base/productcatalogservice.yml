@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: khoi2010/ecommerce-app/productcatalogservice:latest
+        image: khoi2010/productcatalogservice:latest
         ports:
         - containerPort: 3550
         env:
