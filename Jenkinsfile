@@ -6,8 +6,7 @@ pipeline {
                 withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'kubeadm', namespace: 'webapps', serverUrl: 'https://172.31.43.10:6443']]) {
                     sh "kubectl apply -k kustomize/base/"
                     sleep 20
-                    sh "kubectl get svc -n webapps"
-                    
+                    sh "kubectl get svc -n webapps"                
                 }
             }
         }
