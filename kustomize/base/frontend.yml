@@ -16,7 +16,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: khoi2010/ecommerce-app/frontend:latest
+          image: khoi2010/frontend:latest
           ports:
           - containerPort: 8080
           readinessProbe:
