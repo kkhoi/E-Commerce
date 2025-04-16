@@ -12,3 +12,4 @@ resources:
 - productcatalogservice.yml
 - recommendationservice.yml
 - shippingservice.yml
+- redis.yml
