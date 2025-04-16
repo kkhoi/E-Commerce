@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: khoi2010/ecommerce-app/paymentservice:latest
+        image: khoi2010/paymentservice:latest
         ports:
         - containerPort: 50051
         env:
