@@ -14,7 +14,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: khoi2010/ecommerce-app/checkoutservice:latest
+          image: khoi2010/checkoutservice:latest
           ports:
           - containerPort: 5050
           readinessProbe:
