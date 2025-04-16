@@ -13,7 +13,7 @@ spec:
       labels:
         app: adservice
     spec:
-      serviceAccountName: adservice
+      serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
         fsGroup: 1000
