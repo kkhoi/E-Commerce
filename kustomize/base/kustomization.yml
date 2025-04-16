@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- adservice.yml
+- cartservice.yml
+- checkoutservice.yml
+- currencyservice.yml
+- emailservice.yml
+- frontend.yml
+- loadgenerator.yaml
+- paymentservice.yml
+- productcatalogservice.yml
+- recommendationservice.yml
+- shippingservice.yml
