@@ -18,3 +18,14 @@ This personal project demonstrates how to deploy a microservices-based e-commerc
 - Monitoring with Prometheus + Grafana dashboard.
 - Email alerts using Alertmanager.
 
+## 🔧 Setup & Installation
+
+Provision EKS Cluster using Terraform:
+
+cd terraform
+terraform init
+terraform apply
+
+Setup Jenkins pipeline to connect with GitHub repo
+
+Run Jenkins pipeline to build, push image & deploy to EKS
