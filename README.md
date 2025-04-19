@@ -34,13 +34,19 @@ Run Jenkins pipeline to build, push image & deploy to EKS
 
 ## 📊 Monitoring & Alerting
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
 helm repo add grafana https://grafana.github.io/helm-charts
+
 helm repo update
+
 kubectl create namespace monitoring
+
 helm install prometheus prometheus-community/kube-prometheus-stack   --namespace monitoring
+
 edit type ClusterIP -> LoadBalancer
 
 helm install kube-state-metrics prometheus-community/kube-state-metrics --namespace monitoring # monitor node in cluster
+
 helm upgrade prometheus prometheus-community/kube-prometheus-stack -n monitoring -f alertmanager-config.yaml -f values.yaml # update config
 
 ## 📄 Logging
@@ -51,7 +57,7 @@ Screenshots of the E-Commerce microservices frontend and key pages
 
 
 🔄 CI/CD Pipeline
-![CI/CD Pipeline](images/jenkins-pipeline.png)
+![CI/CD Pipeline](/images/jenkins-pipeline.png)
 
 
 ☸️ Kubernetes Workloads
