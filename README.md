@@ -52,12 +52,14 @@ helm upgrade prometheus prometheus-community/kube-prometheus-stack -n monitoring
 ## 📄 Logging
 
 ##🎥 Demo
+
 🛍️ Application Interface
 Screenshots of the E-Commerce microservices frontend and key pages
 
 
 🔄 CI/CD Pipeline
-![CI/CD Pipeline](/images/jenkins-pipeline.png)
+
+![CI/CD Pipeline](/images/jenkins_pipeline.png)
 
 
 ☸️ Kubernetes Workloads
