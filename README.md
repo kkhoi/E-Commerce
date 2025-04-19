@@ -54,8 +54,10 @@ helm upgrade prometheus prometheus-community/kube-prometheus-stack -n monitoring
 ##🎥 Demo
 
 🛍️ Application Interface
-Screenshots of the E-Commerce microservices frontend and key pages
 
+![Screenshot homepage](/images/app_home.png)
+
+![Screenshot cart](/images/order.png)
 
 🔄 CI/CD Pipeline
 
@@ -63,13 +65,12 @@ Screenshots of the E-Commerce microservices frontend and key pages
 
 
 ☸️ Kubernetes Workloads
-Snapshot of deployed pods and services in the EKS cluster
+
+![kubernetes pod svc](/images/pod_svc.png)
 
 
 📈 Monitoring Dashboard
-Grafana dashboard showing CPU, Memory, and Pod status
 
 
 🔔 Alert Notification
-Example email sent via Alertmanager
 
