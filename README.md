@@ -71,6 +71,9 @@ helm upgrade prometheus prometheus-community/kube-prometheus-stack -n monitoring
 
 📈 Monitoring Dashboard
 
+![grafana cluster](/images/grafana_cluster.png)
+
+![grafana node](/images/grafana_node.png)
 
 🔔 Alert Notification
 
