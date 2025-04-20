@@ -12,7 +12,7 @@ pipeline {
         // }
          stage('Deploy To EKS') {
             steps {
-                withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'shoppingapp', contextName: '', credentialsId: 'eks', namespace: 'webapps', serverUrl: 'https://B7B6EB18393EB663A6C82BC097580E8C.gr7.ap-southeast-1.eks.amazonaws.com']]) {
+                withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'shoppingapp', contextName: '', credentialsId: 'eks', namespace: 'webapps', serverUrl: 'https://A88BBAAED1518A0A4A532ED56F756EEF.gr7.ap-southeast-1.eks.amazonaws.com']]) {
                     sh "kubectl apply -k kustomize/base/"
                     sleep 20
                     sh "kubectl get svc -n webapps"
