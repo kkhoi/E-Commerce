@@ -47,6 +47,8 @@ edit type ClusterIP -> LoadBalancer
 
 helm install kube-state-metrics prometheus-community/kube-state-metrics --namespace monitoring # monitor node in cluster
 
+helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter   --namespace monitoring   --create-namespace   --set serviceMonitor.enabled=true   --set serviceMonitor.namespace=monitoring   --set serviceMonitor.additionalLabels.release=prometheus
+
 helm upgrade prometheus prometheus-community/kube-prometheus-stack -n monitoring -f alertmanager-config.yaml -f values.yaml # update config
 
 ## 📄 Logging
