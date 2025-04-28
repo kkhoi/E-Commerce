@@ -44,8 +44,6 @@ kubectl create namespace monitoring
 
 helm install prometheus prometheus-community/kube-prometheus-stack   --namespace monitoring
 
-edit type ClusterIP -> LoadBalancer
-
 helm install kube-state-metrics prometheus-community/kube-state-metrics --namespace monitoring
 
 helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter   --namespace monitoring   --create-namespace   --set serviceMonitor.enabled=true   --set serviceMonitor.namespace=monitoring   --set serviceMonitor.additionalLabels.release=prometheus
