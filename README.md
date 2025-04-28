@@ -33,6 +33,7 @@ Setup Jenkins to connect with GitHub repo, Dockerhub, EKS cluster
 Run Jenkins pipeline to build, push image & deploy to EKS
 
 ## 📊 Monitoring & Alerting
+```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
 helm repo add grafana https://grafana.github.io/helm-charts
@@ -45,11 +46,12 @@ helm install prometheus prometheus-community/kube-prometheus-stack   --namespace
 
 edit type ClusterIP -> LoadBalancer
 
-helm install kube-state-metrics prometheus-community/kube-state-metrics --namespace monitoring # monitor node in cluster
+helm install kube-state-metrics prometheus-community/kube-state-metrics --namespace monitoring
 
 helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter   --namespace monitoring   --create-namespace   --set serviceMonitor.enabled=true   --set serviceMonitor.namespace=monitoring   --set serviceMonitor.additionalLabels.release=prometheus
 
-helm upgrade prometheus prometheus-community/kube-prometheus-stack -n monitoring -f alertmanager-config.yaml -f values.yaml # update config
+helm upgrade prometheus prometheus-community/kube-prometheus-stack -n monitoring -f values.yaml
+```
 
 ## 📄 Logging
 
